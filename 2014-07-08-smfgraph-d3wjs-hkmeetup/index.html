@@ -68,43 +68,66 @@
 <section>
   <h2>D3.js is ...</h2>
   <div><br></div>
-  <div>
+  <div class="fragment">
     <ol>
-      <li class="fragment" data-fragment-index="0">js library in browser</li>
-      <li class="fragment" data-fragment-index="1">actually very similar to jQuery</li>
-      <li class="fragment" data-fragment-index="2">the specialty is for manipulating <font style="font-size: 42px;" color="#00ffff">sets</font>
+      <li>javascript library in browser, in fact very similar to jQuery</li>
+      <li>what makes it special is focusing on <font style="font-size: 42px;" color="#00ffff">sets</font>
+        <ul class="fragment">
+          <li> d3.js accepts data sets as input
+          <li> d3.js manipulates DOM/SVG node sets
+        </ul>
       </li>
     </ol>
+    <div class="fragment">
+      In jQuery
+    <pre><code class="javascript">$('#mystuff').foreach(...);</code></pre>
+      in d3.js
+    <pre><code class="javascript">svg.append('g').selectAll(".link").data(graph.links).enter()
+   .append("line").attr("class", "inactive")</code></pre>
+    </div>
   </div>
-  <br>
-  <div class="fragment" data-fragment-index="3">so what's a sets ?</div>
-  <div class="fragment" data-fragment-index="4">my data</div>
-  <div class="fragment" data-fragment-index="5">DOM/SVG tree nodes</div>
 </section>
 
 <section>
-  <h2>IDEA to CODE</h2>
-  <div>My data -&gt; .<span>json</span>
-  </div>
-  <small>
-    <pre><code data-trim="" class="json">
-    {
-      "svc:/platform/i86pc/acpihpd": [ "svc:/system/sysevent" ],
-      "svc:/system/svc/restarter": [],
-      "svc:/milestone/name-services": [ "svc:/network/dns/client", "svc:/network/ldap/client" ],
-      "svc:/network/datalink-management": [],
-      "svc:/network/ip-interface-management": [],
-      "svc:/system/early-manifest-import": [],
-      "svc:/network/loopback": [ "svc:/network/ip-interface-management" ],
-      ...
-    }
-      </code></pre>
+  <h2>IDEA to CODE (1)</h2>
+  <div>My data =&gt; .<span>JSON</span></div>
+<pre><code data-trim="" class="json">
+{
+  "svc:/platform/i86pc/acpihpd": [ "svc:/system/sysevent" ],
+  "svc:/system/svc/restarter": [],
+  "svc:/milestone/name-services": [ "svc:/network/dns/client", "svc:/network/ldap/client" ],
+  "svc:/network/datalink-management": [],
+  "svc:/network/ip-interface-management": [],
+  "svc:/system/early-manifest-import": [],
+  "svc:/network/loopback": [ "svc:/network/ip-interface-management" ],
+  ...
+}
+</code></pre>
   </small>
-  <div>
-    https://github.com/Project-DogeOS/Project-DogeOS.github.io/blob/master/smfgraph/index.html#L257-L294
-    <pre><code class="javascript">
-gd.groups.push(n.split('/')[1]);
-    </code></pre>
+  <div class="fragment">
+    <code>gd</code> is the data object, which has <code>groups, nodes, links</code>.
+    <pre><code class="javascript">gd.groups.push(name);</code></pre>
+    <pre><code class="javascript">gd.nodes.push({ name: n, group: gd.groups.indexOf(n.split('/')[1]) });</code></pre>
+    <pre><code class="javascript">gd.links.push({ source: i, target: newIndex });</code></pre>
+    <small>Codes range: <a href="https://github.com/Project-DogeOS/Project-DogeOS.github.io/blob/master/smfgraph/index.html#L257-L294">index.html#L257-L294</a></small>
+  </div>
+</section>
+
+<section>
+  <h2>IDEA to CODE (2)</h2>
+  Feed the data to d3.js layout, and create my svg elements.
+  <div class="fragment">
+  <pre><code data-trim class="javascript">
+var force = d3.layout.force();
+var svg = d3.select("#graph").append("svg").append("g");
+force.nodes(gd.nodes).links(gd.links).start();
+var link = svg.append('g').selectAll(".link").data(gd.links).enter().append("line");
+var nodeg = svg.append('g').selectAll(".node").data(gd.nodes).enter().append("g");
+var circle = nodeg.append("circle")
+circle.append("title").text(function(d) { return d.name; });
+nodeg.append('text').text(function(d) { return d.name; });
+  </code></pre>
+  <small>Codes range: <a href="https://github.com/Project-DogeOS/Project-DogeOS.github.io/blob/master/smfgraph/index.html#L177-L255">index.html#L177-L255</a></small>
   </div>
 </section>
 

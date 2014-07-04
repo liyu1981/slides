@@ -61,8 +61,14 @@
 
 <section>
   <h2>The Idea in my Head</h2>
-  <div><br></div>
-  <div>I remember sth, that's d3.js!</div>
+  <div class="fragment">I want to visualize the service dependencies inside <a href="http://www.dogeos.net">DogeOS</a></div>
+  <div class="fragment"><img src="myidea.png"></img></div>
+  <div class="fragment">I remember sth, that's d3.js!</div>
+</section>
+
+<section>
+  <h1>Final Result</h1>
+  <div><a href="http://www.dogeos.net/smfgraph/" target="_blank"><img src="DogeOS-Smf-Browser.png"></img></a></div>
 </section>
 
 <section>
@@ -106,9 +112,15 @@
   </small>
   <div class="fragment">
     <code>gd</code> is the data object, which has <code>groups, nodes, links</code>.
-    <pre><code class="javascript">gd.groups.push(name);</code></pre>
-    <pre><code class="javascript">gd.nodes.push({ name: n, group: gd.groups.indexOf(n.split('/')[1]) });</code></pre>
-    <pre><code class="javascript">gd.links.push({ source: i, target: newIndex });</code></pre>
+    <pre><code data-trim class="javascript">
+gd.groups.push(name);
+    </code></pre>
+    <pre><code data-trim class="javascript">
+gd.nodes.push({ name: n, group: gd.groups.indexOf(n) });
+    </code></pre>
+    <pre><code data-trim class="javascript">
+gd.links.push({ source: i, target: newIndex });
+    </code></pre>
     <small>Codes range: <a href="https://github.com/Project-DogeOS/Project-DogeOS.github.io/blob/master/smfgraph/index.html#L257-L294">index.html#L257-L294</a></small>
   </div>
 </section>
@@ -132,11 +144,20 @@ nodeg.append('text').text(function(d) { return d.name; });
 </section>
 
 <section>
-  <h1>Final Result</h1>
-  <div><a href="http://www.dogeos.net/smfgraph/" target="_blank"><img src="DogeOS-Smf-Browser.png"></img></a></div>
+  <h2>Others & Summary</h2>
+  <div class="fragment">
+    So I build it in about one day. After the initial setup, more features can be added, such as click events, highlighting, and fontface!
+  </div>
+  <br>
+  <div class="fragment">
+    Think what I need, draw something. Prepare your data, and copy&amp;paste others code for some stupid thing.
+  </div>
+  <br>
+  <div class="fragment">
+    Then you got some experience on d3.js, other improvements will be simple.
+  </div>
 </section>
-
-<!-- slides section end -->
+ <!-- slides section end -->
 			</div>
 		</div>
 

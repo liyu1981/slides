@@ -63,7 +63,6 @@
   <h2>The Idea in my Head</h2>
   <div class="fragment">I want to visualize the service dependencies inside <a href="http://www.dogeos.net">DogeOS</a></div>
   <div class="fragment"><img src="myidea.png"></img></div>
-  <div class="fragment">I remember sth, that's d3.js!</div>
 </section>
 
 <section>
@@ -86,7 +85,7 @@
     </ol>
     <div class="fragment">
       In jQuery
-    <pre><code class="javascript">$('#mystuff').foreach(...);</code></pre>
+    <pre><code class="javascript">$('#mystuff').foreach(function(item) { item ... });</code></pre>
       in d3.js
     <pre><code class="javascript">svg.append('g').selectAll(".link").data(graph.links).enter()
    .append("line").attr("class", "inactive")</code></pre>
@@ -130,10 +129,17 @@ gd.links.push({ source: i, target: newIndex });
   Feed the data to d3.js layout, and create my svg elements.
   <div class="fragment">
   <pre><code data-trim class="javascript">
+// start force layout
 var force = d3.layout.force();
+
+// create the svg, feed the nodes data
 var svg = d3.select("#graph").append("svg").append("g");
 force.nodes(gd.nodes).links(gd.links).start();
+
+// draw svg lines
 var link = svg.append('g').selectAll(".link").data(gd.links).enter().append("line");
+
+// draw svg nodes, which is circle + text
 var nodeg = svg.append('g').selectAll(".node").data(gd.nodes).enter().append("g");
 var circle = nodeg.append("circle")
 circle.append("title").text(function(d) { return d.name; });

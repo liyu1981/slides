@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../revealjs/css/reveal.min.css">
+    <link rel="stylesheet" href="../revealjs/css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style>
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none;
+}
+
+li {
+  margin-bottom: 8px !important;
+}
+
+.dogeos-logo {
+  width: 210px;
+  height: 210px;
+  position: relative;
+}
+
+.dogeos-logo .logo-inside {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: transparent url(images/doge.jpg) center center no-repeat;
+  background-size: 210px 210px;
+  box-shadow: 0px 0px 8px #aaa, inset 0px 0px 3px #fff;
+}
+
+.dogeos-logo:before {
+  content: "";
+  display: inline-block;
+  background: transparent;
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  bottom: -12px;
+  right: -12px;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 58px #fff;
+}
+
+.dogeos-bigfont {
+  font-size: 150% !important;
+}
+
+.dogeos-redfont {
+  color: #FF3B30;
+}
+
+.trans-black { background-color: rgba(0,0,0,0.65); color: white; }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+<!-- sections begin -->
+<section data-background="">
+  <div id="topic">
+    <h1>Cloud Computing</h1><br><h3>Where are we now?</h3>
+  </div>
+  <br>
+  <p><a href="https://github.com/liyu1981">LI, Yu</a></p>
+  <p>ClusterTech &amp; <a href="http://www.dogeos.net">www.dogeos.net</a></p>
+</section>
+
+<section data-background="images/all-your-vm.jpg">
+  <div class="fragment zoom-in trans-black">
+    <h1 style="color: white;">I am done with my talk. <br> Q&A ?</h1>
+  </div>
+</section>
+
+<section>
+  <section data-background="images/data-center.jpg" class="trans-black">
+  <h2 style="color: white;">Years ago, <br> Cloud Tech is ...</h2>
+  </section>
+
+  <section data-background="images/nested-virtual.png" class="trans-black">
+    <h2 style="color: white;"> Mainly Virtulization </h2>
+    <ul>
+      <li class="fragment fade-in"> Win &#10174; OSX &#10174; Linux &#10174; Win &#10174; OSX &#10174; Linux ... <br> yes, you can!
+      <li class="fragment fade-in"> Manually manage snapshots
+      <li class="fragment fade-in"> Share images through FTP
+      <li class="fragment fade-in"> No body think VM is serious!
+      <br><br>
+      <li class="fragment fade-in"> They are still there: VMWare Workstation, VirtualBox, VirtualPc, ..., finally <a href="http:/www.vagrantup.com/">Vagrant</a>
+    </ul>
+  </section>
+
+  <section data-background="images/data-center.jpg" class="trans-black">
+    <p>And there is much potential in data center, <br> what if it is virtual?<br><br></p>
+    <p class="fragment fade-in">$ money $ money $ money $<br><br>
+    and some smart one named this <span class="dogeos-bigfont dogeos-redfont">Cloud</span>!
+    </p>
+  </section>
+</section>
+
+<section>
+  <section data-background="images/my-body-is-ready.gif">
+    <div class="fragment zoom-in trans-black">
+      <h2 style="color: white;">If not, then what we need?</h2>
+    </div>
+  </section>
+
+  <section>
+    <ul>
+      <li class="fragment fade-in">Performance boost
+      <li class="fragment fade-in">NIC freedom
+      <li class="fragment fade-in">Strong storage support
+      <li class="fragment fade-in">Resource isolation
+      <li class="fragment fade-in">Managing system
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section data-background="images/smartos-base.jpg" class="trans-black">
+    <h2 style="color: white;">Meanwhile ...</h2>
+    There once was a company named <span class="dogeos-bigfont dogeos-redfont">SUN</span>
+    <br>
+    They had an excellent OS named <span class="dogeos-bigfont dogeos-redfont">Solaris</span>
+    <br><br>
+    which did indurstry level<br>
+    <div class="fragment fade-in">
+      <ul style="line-height: 180%;">
+        <li class="fragment fade-in">OS virtualization (Zones)
+        <li class="fragment fade-in">Network virtualization (Crossbow)
+        <li class="fragment fade-in">Storage hypervision (ZFS)
+        <li class="fragment fade-in">Performance diagnosis (Dtrace)
+      </ul>
+    </div>
+    all in <span class="dogeos-bigfont dogeos-redfont">kernel</span>!
+  </section>
+
+  <section>
+    Solaris eventually opened &#10174; OpenSolaris.
+
+    Then EVIL Oracle came!
+
+    Rebellion Devs make OpenSolaris &#10174; illumos
+  </section>
+
+  <section>
+
+    Finally Joyent brings KVM!
+
+    <ul>
+      <li> Type 1 & Type 2 virtualization unites! <a href="http://dtrace.org/blogs/brendan/2013/01/11/virtualization-performance-zones-kvm-xen/">Bare-metal performance</a>!
+      <li> NIC freedom is free!
+      <li> Storage ~~~ ZFS!
+    </ul>
+
+  </section>
+</section>
+
+<section>
+  <section data-background="images/live-os.jpg"
+    style="background-color: rgba(0,0,0,0.65); color: white;">
+    <h2 style="color: white;">DogeOS is Live OS</h2>
+    <br>
+    <p>
+      no more <span class="dogeos-bigfont dogeos-redfont">installation</span>
+      <br><br>
+      full cached in memory (~300MB)
+      <br><br>
+      and <span class="dogeos-bigfont dogeos-redfont">auto upgradable</span>
+      <br><br>
+      setup everything <span class="dogeos-bigfont dogeos-redfont">without Internet access</span>
+    </p>
+  </section>
+</section>
+
+<section>
+  <section data-background="images/fifo.jpg"
+    style="background-color: rgba(0,0,0,0.65); color: white;">
+    <h2 style="color: white;">DogeOS integrates</h2>
+    <span class="dogeos-bigfont dogeos-redfont">Project FiFo</span>
+    <br>
+    the open source orchestration layer of SmartOS
+    <br><br>
+    With DogeOS, <br>
+    <small>
+    <ul style="line-height: 180%;">
+      <li>Tested SmartOS matches stable release of FiFo
+      <li>All necessary packages are packed in single release
+      <li>Restful APIs for dev and Web portal for operator
+      <li>Setup and clustering is made easy with wizards
+    </ul>
+    </small>
+  </section>
+</section>
+
+<section>
+  <section data-background="">
+  	<center><div class="dogeos-logo"><div class="logo-inside"></div></div></center>
+    <h1>DogeOS</h1>
+    <br>
+  	<h3>Tested SmartOS + FiFo Stable</h3>
+  </section>
+
+  <section>
+    <h2>Try DogeOS now!</h2>
+    <br>
+    <ul>
+      <li> Free download at <a href="http://www.dogeos.net">http://www.dogeos.net</a>
+      <li> Install with VirtualBox with the DVD ISO.
+      <li> or try it on real hardware with the USB IMG.
+    </ul>
+  </section>
+</section>
+
+<!-- sections end -->
+
+      </div>
+
+    </div>
+
+    <script src="../revealjs/lib/js/head.min.js"></script>
+    <script src="../revealjs/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        //theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        theme: Reveal.getQueryHash().theme || 'sky',
+        //transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+
+        embedded: Reveal.getQueryHash().embedded || false,
+
+        // Parallax scrolling
+        //parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        //parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+      // hack to hide/show backgrounds when overview is on/off
+      (function() {
+        Reveal.addEventListener('overviewshown', function( event ) { $('div.backgrounds').hide(200); });
+        Reveal.addEventListener( 'overviewhidden', function( event ) { $('div.backgrounds').show(200); });
+      })();
+
+      $(function() {
+        $('title').html($('#topic').text()); // auto-set the title
+      });
+
+    </script>
+
+  </body>
+</html>

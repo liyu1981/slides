@@ -6,9 +6,6 @@
 
     <title></title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
-
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -87,7 +84,24 @@ li {
   color: #FF3B30;
 }
 
-.trans-black { background-color: rgba(0,0,0,0.65); color: white; }
+.trans-black {
+  background-color: rgba(0,0,0,0.65);
+  color: white;
+}
+
+.trans-black h1,
+.trans-black h2,
+.trans-black h3,
+.trans-black h4
+{
+  color: white;
+}
+
+.trans-black a:not(.image)
+{
+  color: #52EDC7 !important;
+}
+
     </style>
   </head>
 
@@ -101,7 +115,7 @@ li {
 <!-- sections begin -->
 <section data-background="">
   <div id="topic">
-    <h1>Cloud Computing</h1><br><h3>Where are we now?</h3>
+    <h1>Cloud <br> Computing</h1><br><h3>Where are we now?</h3>
   </div>
   <br>
   <p><a href="https://github.com/liyu1981">LI, Yu</a></p>
@@ -110,147 +124,245 @@ li {
 
 <section data-background="images/all-your-vm.jpg">
   <div class="fragment zoom-in trans-black">
-    <h1 style="color: white;">I am done with my talk. <br> Q&A ?</h1>
+    <h2>The future ?</h2>
   </div>
 </section>
 
 <section>
-  <section data-background="images/data-center.jpg" class="trans-black">
-  <h2 style="color: white;">Years ago, <br> Cloud Tech is ...</h2>
-  </section>
-
-  <section data-background="images/nested-virtual.png" class="trans-black">
-    <h2 style="color: white;"> Mainly Virtulization </h2>
-    <ul>
-      <li class="fragment fade-in"> Win &#10174; OSX &#10174; Linux &#10174; Win &#10174; OSX &#10174; Linux ... <br> yes, you can!
-      <li class="fragment fade-in"> Manually manage snapshots
-      <li class="fragment fade-in"> Share images through FTP
-      <li class="fragment fade-in"> No body think VM is serious!
-      <br><br>
-      <li class="fragment fade-in"> They are still there: VMWare Workstation, VirtualBox, VirtualPc, ..., finally <a href="http:/www.vagrantup.com/">Vagrant</a>
-    </ul>
-  </section>
-
-  <section data-background="images/data-center.jpg" class="trans-black">
-    <p>And there is much potential in data center, <br> what if it is virtual?<br><br></p>
-    <p class="fragment fade-in">$ money $ money $ money $<br><br>
-    and some smart one named this <span class="dogeos-bigfont dogeos-redfont">Cloud</span>!
-    </p>
-  </section>
+  <h2>Agenda</h2>
+  <br>
+  <ul>
+    <li> History, only talk, no code
+    <li> Future, only talk, no code
+    <li> Summary, only talk, no code
+  </ul>
+  <br>
+  <br>
+  <br>
+  <h2 class="fragment">Should be easy for everyone ! <br> \ ^o^ / </h2>
 </section>
 
 <section>
+  <section>
+    <h2>Years ago, <br>
+    Cloud computing <br>
+    known by us <br>
+    is ...</h2>
+  </section>
+
+  <section data-background="images/nested-virtual.png" class="trans-black">
+    <h2> Virtulization </h2>
+    <ul>
+      <li> VirtualPC, VMWare, VirtualBox
+      <li> Win &#10174; OSX &#10174; Linux &#10174; Win &#10174; OSX &#10174; Linux ... <br> yes, you can!
+      <li> Manually manage snapshots
+      <li> Share images through FTP
+      <li> No body think VM is serious!
+    </ul>
+    <p class="fragment fade-in"> Now finally <a href="http:/www.vagrantup.com/">Vagrant</a></p>
+  </section>
+
+  <section data-background="images/data-center.jpg" class="trans-black">
+    <h2>But what if <br>data center is virtual?</h2>
+    <p class="fragment fade-in">huge pontential <br> $ money $ money $ money $<br><br>
+    and some smart one named this <span class="dogeos-bigfont dogeos-redfont">Cloud</span>!
+    </p>
+  </section>
+
   <section data-background="images/my-body-is-ready.gif">
-    <div class="fragment zoom-in trans-black">
-      <h2 style="color: white;">If not, then what we need?</h2>
+    <div class="trans-black">
+      <h2>Virtualize the data center <br> were we ready ?</h2>
     </div>
   </section>
 
   <section>
     <ul>
-      <li class="fragment fade-in">Performance boost
-      <li class="fragment fade-in">NIC freedom
-      <li class="fragment fade-in">Strong storage support
-      <li class="fragment fade-in">Resource isolation
-      <li class="fragment fade-in">Managing system
+      <li>Performance boost
+      <li>Network freedom
+      <li>Storage magic
+      <li>Resource isolation
+      <li>Managing system
     </ul>
+  </section>
+
+  <section data-background="images/performance.gif" class="trans-black">
+    <h2>Performance boost</h2>
+    <ul>
+      <li><a href="http://www.xenproject.org">Xen</a>: <br> linux kernel modified, extra ring 1 level
+      <li><a href="http://www.openvz.org">OpenVZ</a>: <br> actually OS container, and rejected by Linus
+      <li><a href="http://www.qemu.org">QEMU</a>: <br> legendary <a href="http://en.wikipedia.org/wiki/Fabrice_Bellard
+">Fabrice Bellard</a>, neat code
+      <li><a href="http://www.linux-kvm.org">KVM</a>: <br> <code>/dev/kvm</code> -- the door opened by kernel
+      <li>Finally <span class="dogeos-bigfont dogeos-redfont">KVM + QEMU</span> <br> cpu and memory is very close to bare metal
+    </ul>
+  </section>
+
+  <section>
+    <h2>Network freedom</h2>
+    <ul>
+      <li>Traditionally: <br> nat, bridge, upnp
+      <li>Morden: <br> tap, virtual nic device
+      <li class="fragment">But that is not enough! <br> SDN(software defined network) recently
+    </ul>
+  </section>
+
+  <section data-background="images/magic.gif" class="trans-black">
+    <h2>Storage magic</h2>
+    <ul>
+      <li> Powerful solutions already out there years: <br> NFS, iSCSI, storage over intranet.
+      <li> Big vendors (EMC, IBM, SUN): <br> volume group, software raid, snapshots.
+      <li> Linux world acts as usual: <br> Clone! LVM!
+    </ul>
+  </section>
+
+  <section>
+    <h2>Resource Isolation</h2>
+    <ul>
+      <li>Xen &amp; KVM is fine.
+      <li>OpenVZ is somehow buggy.<br>The idea involves, and <a href="http://www.linuxcontainers.org">LXC</a> is born.
+      <li>In fact, the OS container is great idea!
+    </ul>
+  </section>
+
+  <section data-background="images/obama-money.gif" class="trans-black">
+    <h2>Managing system</h2>
+    <div class="fragment">
+    <br><h2>$ money $ money $ money $</h2><br>
+    <ul>
+      <li>This is the unsexy part, but generates profit.
+      <li>Comercial: <br> AWS, VMWare VCenter
+      <li>Free: <br> <a href="http://www.openstack.org">OpenStack</a>, <a href="http://www.cloudstack.org">CloudStack</a>, and others (e.g., openqrm)
+      <li>Managing containers (LXC): <br> <a href="http://www.heroku.com">heroku</a>, <a href="http://www.docker.com">docker</a>
+    </ul>
+    </div>
   </section>
 </section>
 
 <section>
+  <section data-background="images/tech-support-meme.jpg" class="trans-black">
+    <h2>Are we done (or happy) ?</h2>
+  </section>
+
+  <section data-background="images/palmface.jpg" class="trans-black">
+    <ul>
+      <li> Managing system is not free!
+      <li> Suffering deployment <br> <small>Linux + hours of reading + hours of deploying + hours of googling ... </small>
+      <li> The disaster just begin after the deployment.
+      <li> HA, multi data centers, migrating ... <br> <small>Anyone ever think about those? <br> We DevOps miss them!</small>
+      <li> And crrently OS containers are fighting VM.
+    </ul>
+  </section>
+
+  <section data-background="images/winxp-in-atm.png" class="trans-black">
+    <h2>When will we have this for Cloud?</h2>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>A possible direction <br> <br> A, pure, OS for cloud</h2>
+    <ul>
+      <li> Push every necessary parts into kernel
+      <li> Pack and only-pack necessary components
+      <li> OS containers and VM side by side
+    </ul>
+  </section>
+
   <section data-background="images/smartos-base.jpg" class="trans-black">
-    <h2 style="color: white;">Meanwhile ...</h2>
+    <h2>History again ...</h2>
     There once was a company named <span class="dogeos-bigfont dogeos-redfont">SUN</span>
     <br>
     They had an excellent OS named <span class="dogeos-bigfont dogeos-redfont">Solaris</span>
     <br><br>
-    which did indurstry level<br>
     <div class="fragment fade-in">
-      <ul style="line-height: 180%;">
-        <li class="fragment fade-in">OS virtualization (Zones)
-        <li class="fragment fade-in">Network virtualization (Crossbow)
-        <li class="fragment fade-in">Storage hypervision (ZFS)
-        <li class="fragment fade-in">Performance diagnosis (Dtrace)
+      <p>which did indurstry level</p>
+      <ul>
+        <li>OS containers (Zones)
+        <li>Network virtualization (Crossbow)
+        <li>Storage magics (ZFS)
+        <li>Performance diagnosis (Dtrace)
       </ul>
+      <p>all in <span class="dogeos-bigfont dogeos-redfont">kernel</span> and around 2005!</p>
     </div>
-    all in <span class="dogeos-bigfont dogeos-redfont">kernel</span>!
   </section>
 
-  <section>
-    Solaris eventually opened &#10174; OpenSolaris.
-
-    Then EVIL Oracle came!
-
-    Rebellion Devs make OpenSolaris &#10174; illumos
-  </section>
-
-  <section>
-
-    Finally Joyent brings KVM!
-
+  <section data-background="images/evil-came.gif" class="trans-black">
     <ul>
-      <li> Type 1 & Type 2 virtualization unites! <a href="http://dtrace.org/blogs/brendan/2013/01/11/virtualization-performance-zones-kvm-xen/">Bare-metal performance</a>!
-      <li> NIC freedom is free!
-      <li> Storage ~~~ ZFS!
+      <li> Solaris is eventually opened &#10174; OpenSolaris.
+      <li> Then EVIL Oracle came!
+      <li> Rebellion of core devs fork OpenSolaris &#10174; <a href="http://www.illumos.org">illumos</a>
+      <li> Finally Joyent brings KVM + QEMU from Linux world! <br>
+           OS containers now lives harmony with VM.
     </ul>
-
   </section>
-</section>
 
-<section>
-  <section data-background="images/live-os.jpg"
-    style="background-color: rgba(0,0,0,0.65); color: white;">
-    <h2 style="color: white;">DogeOS is Live OS</h2>
+  <section data-background="images/smartos.jpg" class="trans-black">
+    <h2>Packing is easy, <br> so Joyent did it.</h2>
+  </section>
+
+  <section data-background="images/live-os.jpg" class="trans-black" style="margin-left: 20%;">
+    <div style="
+border: 10px solid #F00;
+border-radius: 50%;
+position: fixed;
+width: 250px;
+height: 250px;
+left: -30%;
+top: 30%;"></div>
+    <h2>SmartOS is Live OS</h2>
     <br>
     <p>
       no more <span class="dogeos-bigfont dogeos-redfont">installation</span>
       <br><br>
       full cached in memory (~300MB)
       <br><br>
-      and <span class="dogeos-bigfont dogeos-redfont">auto upgradable</span>
+      OS container + KVM + storage magic instantly ready.
       <br><br>
-      setup everything <span class="dogeos-bigfont dogeos-redfont">without Internet access</span>
+      upgrading cost is bacically gone.
+      <br><br>
+      whatever you do, you do it in a VM.
     </p>
   </section>
-</section>
 
-<section>
-  <section data-background="images/fifo.jpg"
-    style="background-color: rgba(0,0,0,0.65); color: white;">
-    <h2 style="color: white;">DogeOS integrates</h2>
-    <span class="dogeos-bigfont dogeos-redfont">Project FiFo</span>
+  <section>
+    but where is the managing system?
+  </section>
+
+  <section data-background="images/fifo.jpg" class="trans-black">
+    <h2><a href="http://www.project-fifo.net">Project FiFo</a></h2>
+    <p>the open source orchestration layer of SmartOS</p>
+    <ul>
+      <li> API, Console, Web, WebVNC, all you want is here
+      <li> Truely distributed, very easy to scale
+      <li> HA built-in, Dynamo style
+      <li> Auto discoverable, as easy as to power on
+    </ul>
+  </section>
+
+  <section data-background="">
+  	<center><div class="dogeos-logo"><div class="logo-inside"></div></div></center>
+    <h1>DogeOS</h1>
     <br>
-    the open source orchestration layer of SmartOS
-    <br><br>
-    With DogeOS, <br>
-    <small>
     <ul style="line-height: 180%;">
       <li>Tested SmartOS matches stable release of FiFo
       <li>All necessary packages are packed in single release
       <li>Restful APIs for dev and Web portal for operator
       <li>Setup and clustering is made easy with wizards
     </ul>
-    </small>
   </section>
 </section>
 
-<section>
-  <section data-background="">
-  	<center><div class="dogeos-logo"><div class="logo-inside"></div></div></center>
-    <h1>DogeOS</h1>
+<section data-background="images/EndofBeginning.jpg" class="trans-black">
+  <h2>Wrap Up</h2>
+  <ul>
+    <li> Past: <br> Cloud OS on top of Linux, various this and that.
+    <li> Future: <br> pure Cloud OS, swiss-knife for data center.
+    <li> Now: <br> The end of the beginning.
+  </ul>
+  <div class="fragment">
     <br>
-  	<h3>Tested SmartOS + FiFo Stable</h3>
-  </section>
-
-  <section>
-    <h2>Try DogeOS now!</h2>
-    <br>
-    <ul>
-      <li> Free download at <a href="http://www.dogeos.net">http://www.dogeos.net</a>
-      <li> Install with VirtualBox with the DVD ISO.
-      <li> or try it on real hardware with the USB IMG.
-    </ul>
-  </section>
+    <h4>And do not forget to try DogeOS now!</h4>
+  </div>
 </section>
 
 <!-- sections end -->

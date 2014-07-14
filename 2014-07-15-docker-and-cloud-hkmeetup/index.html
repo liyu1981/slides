@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js"></script>
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
@@ -418,6 +419,18 @@ top: 30%;"></div>
       $(function() {
         $('title').html($('#topic').text()); // auto-set the title
       });
+
+      (function() {
+        var loading = $('<p><small>Loading images: <span></span>%. </small></p>');
+        var s = loading.find('span');
+        $($('section')[0]).append(loading);
+        $('div.slides').waitForImages(function() {
+          s.html('100');
+          setTimeout(function() { loading.remove(); }, 3 * 1000);
+        }, function(loaded, count, success) {
+          s.html((loaded / count).toFixed(2));
+        });
+      })();
 
     </script>
 

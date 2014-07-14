@@ -122,12 +122,6 @@ li {
   <p>ClusterTech &amp; <a href="http://www.dogeos.net">www.dogeos.net</a></p>
 </section>
 
-<section data-background="images/all-your-vm.jpg">
-  <div class="fragment zoom-in trans-black">
-    <h2>The future ?</h2>
-  </div>
-</section>
-
 <section>
   <h2>Agenda</h2>
   <br>
@@ -140,6 +134,12 @@ li {
   <br>
   <br>
   <h2 class="fragment">Should be easy for everyone ! <br> \ ^o^ / </h2>
+</section>
+
+<section data-background="images/all-your-vm.jpg">
+  <div class="fragment zoom-in trans-black">
+    <h2>The future ?</h2>
+  </div>
 </section>
 
 <section>
@@ -197,11 +197,12 @@ li {
     </ul>
   </section>
 
-  <section>
+  <section data-background="images/freedom.jpg" class="trans-black">
     <h2>Network freedom</h2>
     <ul>
-      <li>Traditionally: <br> nat, bridge, upnp
-      <li>Morden: <br> tap, virtual nic device
+      <li>Traditionally: <br> NAT, Bridge, uPnP
+      <li>Morden: <br> Tap device, Virtual NIC device
+      <li>Even system VMs dedicated to network
       <li class="fragment">But that is not enough! <br> SDN(software defined network) recently
     </ul>
   </section>
@@ -209,13 +210,14 @@ li {
   <section data-background="images/magic.gif" class="trans-black">
     <h2>Storage magic</h2>
     <ul>
-      <li> Powerful solutions already out there years: <br> NFS, iSCSI, storage over intranet.
-      <li> Big vendors (EMC, IBM, SUN): <br> volume group, software raid, snapshots.
+      <li> Powerful solutions out there for years: <br> ZFS, NFS, iSCSI, storage over intranet.
+      <li> Big vendors (EMC, IBM, SUN) with big ideas: <br> volume group, software raid, snapshots.
       <li> Linux world acts as usual: <br> Clone! LVM!
+      <li> More recently: distributed FS. <br> <a href="http://www.gluster.org/">GlusterFS</a>, <a href="http://www.ceph.com">Ceph</a>.
     </ul>
   </section>
 
-  <section>
+  <section data-background="images/isolation.jpg" class="trans-black">
     <h2>Resource Isolation</h2>
     <ul>
       <li>Xen &amp; KVM is fine.
@@ -261,6 +263,7 @@ li {
 <section>
   <section>
     <h2>A possible direction <br> <br> A, pure, OS for cloud</h2>
+    <br>
     <ul>
       <li> Push every necessary parts into kernel
       <li> Pack and only-pack necessary components
@@ -290,14 +293,14 @@ li {
     <ul>
       <li> Solaris is eventually opened &#10174; OpenSolaris.
       <li> Then EVIL Oracle came!
-      <li> Rebellion of core devs fork OpenSolaris &#10174; <a href="http://www.illumos.org">illumos</a>
-      <li> Finally Joyent brings KVM + QEMU from Linux world! <br>
+      <li> Core devs became rebels, and fork OpenSolaris &#10174; <a href="http://www.illumos.org">illumos</a>
+      <li> Finally <a href="http://www.joyent.com">Joyent</a> brings KVM + QEMU from Linux world! <br>
            OS containers now lives harmony with VM.
     </ul>
   </section>
 
   <section data-background="images/smartos.jpg" class="trans-black">
-    <h2>Packing is easy, <br> so Joyent did it.</h2>
+    <h2>Packing is easy, <br> so Joyent did it, <br> and Joyent did it right!</h2>
   </section>
 
   <section data-background="images/live-os.jpg" class="trans-black" style="margin-left: 20%;">
@@ -325,7 +328,7 @@ top: 30%;"></div>
   </section>
 
   <section>
-    but where is the managing system?
+    <h3>but where is the managing system?</h3>
   </section>
 
   <section data-background="images/fifo.jpg" class="trans-black">

@@ -221,9 +221,10 @@ li {
   <section data-background="images/isolation.jpg" class="trans-black">
     <h2>Resource Isolation</h2>
     <ul>
-      <li>Xen &amp; KVM is fine.
-      <li>OpenVZ is somehow buggy.<br>The idea involves, and <a href="http://www.linuxcontainers.org">LXC</a> is born.
-      <li>In fact, the OS container is great idea!
+      <li> Xen &amp; KVM is fine.
+      <li> OpenVZ is somehow buggy.<br>The idea involves, and <a href="http://www.linuxcontainers.org">LXC</a> is born.
+      <li> The OS container is great idea!
+      <li> But none of them is perfect! <br> Instead of flat control, we need priority.
     </ul>
   </section>
 
@@ -429,7 +430,9 @@ top: 30%;"></div>
           setTimeout(function() { loading.remove(); }, 3 * 1000);
         }, function(loaded, count, success) {
           s.html((loaded / count).toFixed(2));
-        });
+        },
+        true // recursive check
+        );
       })();
 
     </script>
